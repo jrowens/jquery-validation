@@ -1,3 +1,155 @@
+1.15.0 / 2016-02-24
+==================
+
+## All
+  * Fixed code style issues
+
+## Core
+  * `resetForm` should also remove `valid` class from elements.
+  * Unhighlighting field if already highlighted when using remote rule.
+  * Bind the `blur` event just once in `equalTo` rule
+  * Fixed error when calling .rules() on empty jquery set.
+  * Fix handling of error messages with input groups.
+  * Fix TypeError in `showLabel` when using `groups` settings
+  * Adding a way to pass method name to remote
+  * Validation fails to trigger when next field is already filled out (Fixes #1508)
+  * Required rule take precedence over number & digits rules
+  * Error hidden but input error class not removed
+  * Remote validation uses wrong error messages
+  * Fixed field highlighting with remote validation.
+  * Fixed `:filled` selector for multiple select elements.
+  * Added doc reference to jQuery.validator.methods
+  * Move message processing from `formatAndAdd` to `defaultMessage`
+  * ErrorList should contain only the errors that it should
+  * Extract the file name without including "C:\fakepath\"
+  * HTML5 step attribute support. Fixes #1295
+  * Added support for "pending" class on outstanding requests
+  * Added normalizer (#1602)
+  * Split out `creditcard` method
+  * Escape errorID for use in the regex, not to build aria-describedby
+  * Escape single quotes in names avoiding a Sizzle Error being thrown
+  * Instead of using validating field's value to skip api call, use the serialized data object of the request
+  * Add support for contentEditable tags
+
+## Additional
+  * BIC: allow digits 1-9 in second place of location
+  * Accept method regex should be escaped properly.
+  * Case-insensitive check for BIC
+  * Correct postalCodeCA to exclude invalid combinations
+  * Make postalCodeCA method more lenient
+
+## Localization
+  * Added Macedonian localization.
+  * Added missing pattern message in Polish (adamwojtkiewicz)
+  * Fixed Persian translation of min/max message.
+  * Updated messages_sk.js
+  * Update Malay translation
+  * Included messages from additional methods
+  * Improving pt_BR translation and fixing a typo on the 'cifES' key.
+  
+1.14.0 / 2015-06-30
+==================
+
+## Core
+  * Remove unused removeAttrs method
+  * Replace regex for url method
+  * Remove bad url param in $.ajax, overwritten by $.extend
+  * Properly handle nested cancel submit button
+  * Fix indent
+  * Refactor attributeRules and dataRules to share noramlizer
+  * dataRules method to convert value to number for number inputs
+  * Update url method to allow for protocol-relative URLs
+  * Remove deprecated $.format placeholder
+  * Use jQuery 1.7+ on/off, add destroy method
+  * IE8 compatibility changed .indexOf to $.inArray
+  * Cast NaN value attributes to undefined for Opera Mini
+  * Stop trimming value inside required method
+  * Use :disabled selector to match disabled elements
+  * Exclude some keyboard keys to prevent revalidating the field
+  * Do not search the whole DOM for radio/checkbox elements
+  * Throw better errors for bad rule methods
+  * Fixed number validation error
+  * Fix reference to whatwg spec
+  * Focus invalid element when validating a custom set of inputs
+  * Reset element styles when using custom highlight methods
+  * Escape dollar sign in error id
+  * Revert "Ignore readonly as well as disabled fields."
+  * Update link in comment for Luhn algorithm
+
+## Additionals
+  * Update dateITA to address timezone issue
+  * Fix extension method to only method period
+  * Fix accept method to match period only
+  * Update time method to allow single digit hour
+  * Drop bad test for notEqualTo method
+  * Add notEqualTo method
+  * Use correct jQuery reference via `$`
+  * Remove useless regex check in iban method
+  * Brazilian CPF number
+
+## Localization
+  * Update messages_tr.js
+  * Update messages_sr_lat.js
+  * Adding Perú Spanish (ES PE)
+  * Adding Georgian (ქართული, ge)
+  * Fixed typo in catalan translation
+  * Improve Finnish (fi) translation
+  * Add armenian (hy_AM) locale
+  * Extend italian (it) translation with currency method
+  * Add bn_BD locale
+  * Update zh locale
+  * Remove full stop at the end of italian messages
+
+1.13.1 / 2014-10-14
+==================
+
+## Core
+  * Allow 0 as value for autoCreateRanges
+  * Apply ignore setting to all validationTargetFor elements
+  * Don't trim value in min/max/rangelength methods
+  * Escape id/name before using it as a selector in errorsFor
+  * Explicit default for focusCleanup option
+  * Fix incorrect regexp for describedby matcher
+  * Ignore readonly as well as disabled fields
+  * Improve id escaping, store escaped id in describedby
+  * Use return value of submitHandler to allow or prevent form submit
+
+## Additionals
+  * Add postalcodeBR method
+  * Fix pattern method when parameter is a string
+
+
+1.13.0 / 2014-07-01
+==================
+
+## All
+* Add plugin UMD wrapper
+
+## Core
+* Respect non-error aria-describedby and empty hidden errors
+* Improve dateISO RegExp
+* Added radio/checkbox to delegate click-event
+* Use aria-describedby for non-label elements
+* Register focusin, focusout and keyup also on radio/checkbox
+* Fix normalization for rangelength attribute value
+* Update elementValue method to deal with type="number" fields
+* Use charAt instead of array notation on strings, to support IE8(?)
+
+## Localization
+* Fix sk translation of rangelength method
+* Add Finnish methods
+* Fixed GL number validation message
+* Fixed ES number method validation message
+* Added galician (GL)
+* Fixed French messages for min and max methods
+
+## Additionals
+* Add statesUS method
+* Fix dateITA method to deal with DST bug
+* Add persian date method
+* Add postalCodeCA method
+* Add postalcodeIT method
+
 1.12.0 / 2014-04-01
 ==================
 
@@ -10,7 +162,7 @@
 * Additionals: Update IBAN method, trim trailing whitespaces ([#970](https://github.com/jzaefferer/jquery-validation/issues/970), [347b04a](https://github.com/jzaefferer/jquery-validation/commit/347b04a7d4e798227405246a5de3fc57451d52e1))
 * BIC method: Improve RegEx, {1} is always redundant. Closes gh-744 ([5cad6b4](https://github.com/jzaefferer/jquery-validation/commit/5cad6b493575e8a9a82470d17e0900c881130873))
 * Bower: Add Bower.json for package registration ([e86ccb0](https://github.com/jzaefferer/jquery-validation/commit/e86ccb06e301613172d472cf15dd4011ff71b398))
-* Changes references from '$' to 'jQuery', for compability with jQuery.noConflict. Closes gh-754 ([2049afe](https://github.com/jzaefferer/jquery-validation/commit/2049afe46c1be7b3b89b1d9f0690f5bebf4fbf68))
+* Changes dollar references to 'jQuery', for compability with jQuery.noConflict. Closes gh-754 ([2049afe](https://github.com/jzaefferer/jquery-validation/commit/2049afe46c1be7b3b89b1d9f0690f5bebf4fbf68))
 * Core: Add "method" field to error list entry ([89a15c7](https://github.com/jzaefferer/jquery-validation/commit/89a15c7a4b17fa2caaf4ff817f09b04c094c3884))
 * Core: Added support for generic messages via data-msg attribute ([5bebaa5](https://github.com/jzaefferer/jquery-validation/commit/5bebaa5c55c73f457c0e0181ec4e3b0c409e2a9d))
 * Core: Allow attributes to have a value of zero (eg min='0') ([#854](https://github.com/jzaefferer/jquery-validation/issues/854), [9dc0d1d](https://github.com/jzaefferer/jquery-validation/commit/9dc0d1dd946b2c6178991fb16df0223c76162579))
